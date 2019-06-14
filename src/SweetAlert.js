@@ -186,12 +186,13 @@ export const withSwalInstance = swalInstance =>
             ...OVERWRITE_PROPS,
           })
           .then(
-            () => {
-              this.handleClickConfirm(onConfirm);
-            },
-            dismiss => {
-              this.handleClickCancel(onCancel, dismiss);
-            },
+            (result) => {
+              if (result.value) {
+                this.handleClickConfirm(onConfirm);
+              } else {
+                this.handleClickCancel(onCancel, result.dismiss);
+              }
+            }
           );
         this._show = true;
         if (onEscapeKey) this.bindEscapeKey(onEscapeKey);
