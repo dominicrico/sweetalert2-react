@@ -29,7 +29,7 @@ const ALLOWS_KEYS = [
   'showLoaderOnConfirm',
 ];
 
-const REMOVED_KEYS = ['timer', 'allowOutsideClick', 'allowEscapeKey'];
+const REMOVED_KEYS = ['timer', 'allowOutsideClick', 'allowEscapeKey', 'closeOnConfirm', 'closeOnCancel'];
 
 const OVERWRITE_PROPS = {
   allowOutsideClick: false,
@@ -179,6 +179,9 @@ export const withSwalInstance = swalInstance =>
     setupWithProps(props) {
       warningRemoved(props);
       const { show, onConfirm, onCancel, onClose, onEscapeKey } = props;
+
+      console.log('SHOW IS ', show, props.title)
+
       if (show) {
         this._swal
           .fire({
