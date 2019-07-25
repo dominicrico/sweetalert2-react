@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import { mount } from 'enzyme';
 import swal from 'sweetalert2'
 
 import SweetAlert from '../SweetAlert';

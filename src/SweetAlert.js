@@ -180,8 +180,6 @@ export const withSwalInstance = swalInstance =>
       warningRemoved(props);
       const { show, onConfirm, onCancel, onClose, onEscapeKey } = props;
 
-      console.log('SHOW IS ', show, props.title)
-
       if (show) {
         this._swal
           .fire({
