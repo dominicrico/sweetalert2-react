@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { mount } from 'enzyme';
-import swal from 'sweetalert2'
+import swal from 'sweetalert2';
 
 import SweetAlert from '../SweetAlert';
 
 let _error;
 
-jest.mock('sweetalert2')
+jest.mock('sweetalert2');
 
 beforeEach(() => {
   swal.mockClear();

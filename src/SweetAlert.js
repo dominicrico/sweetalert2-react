@@ -188,12 +188,11 @@ export const withSwalInstance = swalInstance =>
           })
           .then(
             (result) => {
-              if (result.value) {
-                this.handleClickConfirm(onConfirm);
-              } else {
-                this.handleClickCancel(onCancel, result.dismiss);
-              }
-            }
+              this.handleClickConfirm(onConfirm, result.value);
+            },
+            dismiss => {
+              this.handleClickCancel(onCancel, dismiss);
+            },
           );
         this._show = true;
         if (onEscapeKey) this.bindEscapeKey(onEscapeKey);
