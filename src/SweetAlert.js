@@ -238,15 +238,15 @@ export const withSwalInstance = swalInstance =>
       mousetrap.unbind('esc');
     }
 
-    handleClickConfirm(onConfirm) {
+    handleClickConfirm(onConfirm, result) {
       if (onConfirm) {
-        onConfirm();
+        onConfirm(result);
       }
     }
 
-    handleClickCancel(onCancel) {
+    handleClickCancel(onCancel, reason) {
       if (onCancel) {
-        onCancel();
+        onCancel(reason);
       }
     }
 
