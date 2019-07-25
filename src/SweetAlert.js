@@ -186,12 +186,13 @@ export const withSwalInstance = swalInstance =>
             ...OVERWRITE_PROPS,
           })
           .then(
-            () => {
-              this.handleClickConfirm(onConfirm);
-            },
-            dismiss => {
-              this.handleClickCancel(onCancel, dismiss);
-            },
+            (result) => {
+              if (result.value) {
+                this.handleClickConfirm(onConfirm);
+              } else {
+                this.handleClickCancel(onCancel, result.dismiss);
+              }
+            }
           );
         this._show = true;
         if (onEscapeKey) this.bindEscapeKey(onEscapeKey);
@@ -237,15 +238,15 @@ export const withSwalInstance = swalInstance =>
       mousetrap.unbind('esc');
     }
 
-    handleClickConfirm(onConfirm) {
+    handleClickConfirm(onConfirm, result) {
       if (onConfirm) {
-        onConfirm();
+        onConfirm(result);
       }
     }
 
-    handleClickCancel(onCancel) {
+    handleClickCancel(onCancel, reason) {
       if (onCancel) {
-        onCancel();
+        onCancel(reason);
       }
     }
 
